@@ -10,7 +10,11 @@ abstract class Account {
 class SavingsAccount extends Account {
   double interestRate;
 
-  SavingsAccount({required int accountNumber, required double balance, required this.interestRate});
+  SavingsAccount({required int accountNumber, required double balance, required this.interestRate})
+      : super() {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
 
   @override
   withdraw(double amount) {
@@ -20,9 +24,13 @@ class SavingsAccount extends Account {
 }
 
 class CurrentAccount extends Account {
-  double overdraftLimit;
+   double overdraftLimit;
 
-  CurrentAccount({required int accountNumber, required double balance, required this.overdraftLimit});
+  CurrentAccount({required int accountNumber, required double balance, required this.overdraftLimit})
+      : super() {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
 
   @override
   withdraw(double amount) {
@@ -44,4 +52,7 @@ void main() {
 
   userCurrentAccount.deposit(9000);
   userCurrentAccount.withdraw(7000);
+
+  print(userCurrentAccount.balance);
+  print(userSavingsAccount.balance);
 }
