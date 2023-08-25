@@ -3,6 +3,7 @@ abstract class Account {
   late double balance;
 
   deposit(double amount) => balance += amount;
+
   withdraw(double amount);
 }
 
