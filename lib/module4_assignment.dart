@@ -8,7 +8,7 @@ abstract class Account {
 }
 
 class SavingsAccount extends Account {
-  late double interestRate;
+  double interestRate;
 
   SavingsAccount({required int accountNumber, required double balance, required this.interestRate});
 
@@ -20,7 +20,7 @@ class SavingsAccount extends Account {
 }
 
 class CurrentAccount extends Account {
-  late double overdraftLimit;
+  double overdraftLimit;
 
   CurrentAccount({required int accountNumber, required double balance, required this.overdraftLimit});
 
