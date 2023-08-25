@@ -52,7 +52,4 @@ void main() {
 
   userCurrentAccount.deposit(9000);
   userCurrentAccount.withdraw(7000);
-
-  print(userCurrentAccount.balance);
-  print(userSavingsAccount.balance);
 }
