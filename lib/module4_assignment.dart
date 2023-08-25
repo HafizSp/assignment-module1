@@ -10,6 +10,8 @@ abstract class Account {
 class SavingsAccount extends Account {
   late double interestRate;
 
+  SavingsAccount({required int accountNumber, required double balance, required this.interestRate});
+
   @override
   withdraw(double amount) {
     balance -= amount;
@@ -19,6 +21,8 @@ class SavingsAccount extends Account {
 
 class CurrentAccount extends Account {
   late double overdraftLimit;
+
+  CurrentAccount({required int accountNumber, required double balance, required this.overdraftLimit});
 
   @override
   withdraw(double amount) {
@@ -31,19 +35,13 @@ class CurrentAccount extends Account {
 }
 
 void main() {
-  SavingsAccount userSavingsAccount = SavingsAccount();
+  SavingsAccount userSavingsAccount = SavingsAccount(accountNumber: 5678, balance: 8500, interestRate: 0.05);
 
-  userSavingsAccount.accountNumber = 5678;
-  userSavingsAccount.balance = 8500;
-  userSavingsAccount.interestRate = 1.5;
   userSavingsAccount.deposit(1000);
   userSavingsAccount.withdraw(3000);
 
-  CurrentAccount userCurrentAccount = CurrentAccount();
+  CurrentAccount userCurrentAccount = CurrentAccount(accountNumber: 3456, balance: 10500, overdraftLimit: 6000);
 
-  userCurrentAccount.accountNumber = 3456;
-  userCurrentAccount.balance = 10500;
-  userCurrentAccount.overdraftLimit = 6000;
   userCurrentAccount.deposit(9000);
   userCurrentAccount.withdraw(7000);
 }
